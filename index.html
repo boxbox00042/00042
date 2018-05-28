@@ -1,0 +1,128 @@
+﻿<html>
+<head>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/0F3F52DF-8278-0042-9818-F7A18E586F30/main.js" charset="UTF-8"></script><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<style type="text/css">
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url('deed/deed1.png');
+}
+div#all-img {
+	display: flex;
+	margin: 0 8px;
+}
+div#all-img > img {
+	display: flex;
+	flex:1;
+	width: 480px;
+	height: 480px;
+	margin: 150px 0px 0 0;
+}
+
+/* 文字介紹 */
+div#article {
+	display: none;
+}
+div#article.active {
+	display: block
+}
+div#article > div:last-child {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
+	display: flex;
+	background-color: #fff;
+	padding: 30px 15px 15px;
+	border-radius: 5px;
+	
+	font-family: "微軟正黑體";
+}
+div#article > div:last-child > img {
+	width: 500px;
+	height: 500px;
+}
+div#article > div:last-child > button {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	background: none;
+	border: 0;
+	border-radius: 0 5px 0 0;
+	font-weight: bold;
+	transition: .15s;
+	color: red;
+	background-color: white;
+}
+div#article > div:last-child > button:hover {
+	color: white;
+	background-color: red;
+}
+div#article > div:last-child > button:focus {
+	outline: none;
+}
+div#article > div:last-child > div {
+	flex: 1;
+	width: calc(100% - 304px);
+	padding-left: 15px;
+}
+div#article > div:last-child > div > p:first-child {
+	margin-bottom: 15px;
+}
+div#article > div:first-child {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #000;
+	opacity: .6;
+}
+</style>
+</head>
+
+<body>
+<BODY background="deed/deed1.png" >
+<div id="all-img">
+	<img src="deed/deed2.png">
+	<img src="deed/deed3.png">
+	<img src="deed/deed4.png">
+	<img src="deed/deed5.png">
+	<img src="deed/deed6.png">
+	<img src="deed/deed7.png">
+	<img src="deed/deed8.png">
+	<img src="deed/deed9.png">
+</div>
+
+<div id="article">
+	<div></div>
+	<div>
+		<img src="deed/deed1.png"/>
+		<div>
+			<p> 123 </p>
+			<p>    123    </p>
+		</div>
+		<button>x</button>
+	</div>
+</div>
+
+<script>
+$("div#all-img > img").bind("click", function() {
+	$("div#article > div:last-child > img").attr("src", $(this).attr("src"));
+	$("div#article").addClass("active");
+})
+$("div#article > div:last-child > button, div#article > div:first-child").bind("click", function() {
+	$("div#article").removeClass("active");
+})
+</script>
+
+</body>
+</html
